@@ -30,12 +30,38 @@ public class MovieRentalTest {
         assertEquals(Movie.REGULAR, theManWhoKnewTooMuch.getPriceCode());
     }
     
+    
+    @Test
+    public void testGetMovie(){
+        MovieRental movie = new MovieRental(mulan,3);                
+        assertEquals(mulan, movie.getMovie());
+    }
+    
+    @Test
+    public void testGetDaysR(){
+        MovieRental movie = new MovieRental(mulan,3);           
+        assertEquals(3,movie.getDaysRented());
+    }
+    
     @Test
     public void testSetPrice(){
         mulan = new Movie("Mulan", Movie.CHILDRENS);
-        mulan.setPriceCode(Movie.NEW_RELEASE);
-        assertEquals(Movie.NEW_RELEASE,mulan.getPriceCode());
+        mulan.setPriceCode(Movie.REGULAR);
+        assertEquals(Movie.REGULAR,mulan.getPriceCode());
         
     }
     
+    @Test
+    public void testGetPrice(){
+        MovieRental movie = new MovieRental(theManWhoKnewTooMuch,3);           
+        System.out.println("Get Price");
+        int expResult = (int) 3;
+        int result = (int) ((movie.getDaysRented() - 2) *3) ;
+        assertEquals(expResult,result);
+    
+    
+    }
+ 
+    
+
 }
