@@ -5,10 +5,7 @@
  */
 package rentalsystem;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,17 +16,18 @@ import static org.junit.Assert.*;
 public class MovieRentalTest {
     
     Movie theManWhoKnewTooMuch, mulan, slumdogMillionaire;
+    
     @Before
     public void setUp() {
         theManWhoKnewTooMuch = new Movie("The Man Who Knew Too Much", Movie.REGULAR);
         mulan = new Movie("Mulan", Movie.CHILDRENS);
         slumdogMillionaire = new Movie("Slumdog Millionaire", Movie.NEW_RELEASE);
     }
+    
     @Test
     public void testGetPriceCode() {
         assertEquals(Movie.REGULAR, theManWhoKnewTooMuch.getPriceCode());
     }
-    
     
     @Test
     public void testGetMovie(){
@@ -38,7 +36,7 @@ public class MovieRentalTest {
     }
     
     @Test
-    public void testGetDaysR(){
+    public void testGetDaysRented(){
         MovieRental movie = new MovieRental(mulan,3);           
         assertEquals(3,movie.getDaysRented());
     }
@@ -48,7 +46,6 @@ public class MovieRentalTest {
         mulan = new Movie("Mulan", Movie.CHILDRENS);
         mulan.setPriceCode(Movie.REGULAR);
         assertEquals(Movie.REGULAR,mulan.getPriceCode());
-        
     }
     
     @Test
@@ -58,10 +55,5 @@ public class MovieRentalTest {
         int expResult = (int) 3;
         int result = (int) ((movie.getDaysRented() - 2) *3) ;
         assertEquals(expResult,result);
-    
-    
     }
- 
-    
-
 }

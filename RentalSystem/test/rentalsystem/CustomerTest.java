@@ -6,10 +6,7 @@
 package rentalsystem;
 
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,17 +18,6 @@ public class CustomerTest {
     static Customer instance, instance2;
     static MovieRental arg, arg2; 
     static VideoGameRental arg3, arg4;
-    
-    
-    
-    @BeforeClass
-    public static void setUpClass() {
-        
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
@@ -48,10 +34,6 @@ public class CustomerTest {
         assertEquals(expected, instance2._name);
     }
     
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of addMovieRental method, of class Customer.
      */
@@ -62,7 +44,6 @@ public class CustomerTest {
         ArrayList<MovieRental> expected_ = new ArrayList<>();
         expected_.add(arg);
         expected_.add(arg2);
-        
         
         instance.addMovieRental(arg);
         instance.addMovieRental(arg2);
@@ -101,7 +82,5 @@ public class CustomerTest {
         String expResult = instance2.statement();
         String result = instance.statement();
         assertNotNull(expResult, result);       
-        
     }
-    
 }

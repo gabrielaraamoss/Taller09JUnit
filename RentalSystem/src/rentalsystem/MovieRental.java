@@ -16,5 +16,4 @@ class MovieRental {
     public Movie getMovie() {
         return _movie;
     }
-
 }

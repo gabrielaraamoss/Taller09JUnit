@@ -5,10 +5,7 @@
  */
 package rentalsystem;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,18 +15,26 @@ import static org.junit.Assert.*;
  */
 public class MovieTest {
 
+    Movie toyStory, chickenLittle, reyLeon, cronicasSpiderwick;
+    
+    @Before
+    public void setUp() throws Exception {
+        toyStory = new Movie("Toy Story", 2);
+        chickenLittle = new Movie("ola pero no ola de mar, ola de saludo", 0);
+        reyLeon = new Movie("El Rey León", 2);
+        cronicasSpiderwick = new Movie("Las Crónicas de Spiderwick", 0);
+    }
+
     /**
      * Test of getTitle method, of class Movie.
      */
     @Test
     public void testGetTitle() {
         System.out.println("getTitle");
-        Movie instance = null;
-        String expResult = "";
-        String result = instance.getTitle();
+        Movie movie = toyStory;
+        String expResult = "Toy Story";
+        String result = movie.getTitle();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -38,11 +43,10 @@ public class MovieTest {
     @Test
     public void testSetTitle() {
         System.out.println("setTitle");
-        String title = "";
-        Movie instance = null;
-        instance.setTitle(title);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String title = "Chicken Little";
+        Movie movie = chickenLittle;
+        movie.setTitle(title);
+        assertEquals(title, movie.getTitle());
     }
 
     /**
@@ -51,12 +55,10 @@ public class MovieTest {
     @Test
     public void testGetPriceCode() {
         System.out.println("getPriceCode");
-        Movie instance = null;
-        int expResult = 0;
-        int result = instance.getPriceCode();
+        Movie movie = reyLeon;
+        int expResult = Movie.CHILDRENS;
+        int result = movie.getPriceCode();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -65,11 +67,10 @@ public class MovieTest {
     @Test
     public void testSetPriceCode() {
         System.out.println("setPriceCode");
-        int arg = 0;
-        Movie instance = null;
-        instance.setPriceCode(arg);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        int priceCode = Movie.NEW_RELEASE;
+        Movie movie = cronicasSpiderwick;
+        movie.setPriceCode(priceCode);
+        assertEquals(priceCode, movie.getPriceCode());
     }
     
 }
